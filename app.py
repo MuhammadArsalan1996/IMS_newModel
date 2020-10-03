@@ -24,11 +24,11 @@ def welcome():
     return "Welcome All"
 
 #@app.route('/predict',methods=["Get"])
-def predict_note_authentication(DiabetesTypeOne,DiabetesTypeTwo,liverDisease
+def predict_note_authentication(Diabete_Type1,Diabete_Type2,liverDisease
 ,heartDisease, kidneyDisease,Flu,Fever,LowBP,HighBP):
 
    
-    prediction=classifier.predict([[DiabetesTypeOne,DiabetesTypeTwo,liverDisease
+    prediction=classifier.predict([[Diabete_Type1,Diabete_Type2,liverDisease
 ,heartDisease, kidneyDisease,Flu,Fever,LowBP,HighBP]])
     print(prediction)
     return prediction
@@ -43,11 +43,11 @@ def main():
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
-    DiabetesTypeOne = st.checkbox("DiabetesTypeOne")
-    if DiabetesTypeOne:
+    Diabete_Type1 = st.checkbox("Diabete_Type1")
+    if Diabete_Type1:
      st.checkbox("yes", value = True,key=0);
-    DiabetesTypeTwo = st.checkbox("DiabetesTypeTwo")
-    if DiabetesTypeTwo:
+    Diabete_Type2 = st.checkbox("Diabete_Type2")
+    if Diabete_Type2:
      st.checkbox("yes", value = True,key=1)
     liverDisease = st.checkbox("liverDisease")
     if liverDisease:
@@ -72,7 +72,7 @@ def main():
      st.checkbox("yes", value = True,key=8)
     result=""
     if st.button("Predict"):
-      result=predict_note_authentication(DiabetesTypeOne,DiabetesTypeTwo,liverDisease,heartDisease, kidneyDisease,Flu,Fever,LowBP,HighBP)
+      result=predict_note_authentication(Diabete_Type1,Diabete_Type2,liverDisease,heartDisease, kidneyDisease,Flu,Fever,LowBP,HighBP)
     st.success('The output is {}'.format(result)) 
    
     if st.button("About"):
