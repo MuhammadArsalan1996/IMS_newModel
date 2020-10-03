@@ -13,12 +13,7 @@ import pandas as pd
 import streamlit as st 
 
 from PIL import Image
-from flask import Flask, request, jsonify, render_template
 
-app = Flask(__name__)
-
-# Loading ML Model
-IMS_model = pickle.load(open('ims.pkl', 'rb'))
 
 @app.route('/')
 def welcome():
